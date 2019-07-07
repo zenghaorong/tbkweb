@@ -1,0 +1,33 @@
+{
+	"index.html": {
+		"refer": [
+			"index-menu.html",
+			"examples/guide.html",
+			"examples/actionsheet.html",
+			"examples/im-chat.html",
+			"examples/checkbox.html",
+			"examples/indexed-list.html",
+			"examples/locker-dom.html",
+			"examples/info.html",
+			"examples/accordion.html",
+			"examples/ajax.html"
+		]
+	},
+	"index-menu.html": {
+		"refer": [
+			"examples/pullrefresh_main.html",
+			"examples/offcanvas-drag-left.html",
+			"examples/tab-with-viewpagerindicator.html",
+			"examples/tableviews-with-swipe.html",
+			"examples/switches.html"
+		]
+	},
+	"examples/pullrefresh_main.html": {
+		"resources": [
+			"examples/pullrefresh_sub.html"
+		],
+		"refer": [
+			"examples/pullrefresh_sub.html"
+		]
+	}
+}
