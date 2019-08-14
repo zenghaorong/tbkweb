@@ -1,33 +1,84 @@
 {
-	"index.html": {
-		"refer": [
-			"index-menu.html",
-			"examples/guide.html",
-			"examples/actionsheet.html",
-			"examples/im-chat.html",
-			"examples/checkbox.html",
-			"examples/indexed-list.html",
-			"examples/locker-dom.html",
-			"examples/info.html",
-			"examples/accordion.html",
-			"examples/ajax.html"
-		]
-	},
-	"index-menu.html": {
-		"refer": [
-			"examples/pullrefresh_main.html",
-			"examples/offcanvas-drag-left.html",
-			"examples/tab-with-viewpagerindicator.html",
-			"examples/tableviews-with-swipe.html",
-			"examples/switches.html"
-		]
-	},
-	"examples/pullrefresh_main.html": {
-		"resources": [
-			"examples/pullrefresh_sub.html"
-		],
-		"refer": [
-			"examples/pullrefresh_sub.html"
-		]
-	}
+  "index.html": {
+    "refer": [
+      "index-menu.html",
+      "examples/guide.html",
+      "examples/actionsheet.html",
+      "examples/im-chat.html",
+      "examples/checkbox.html",
+      "examples/indexed-list.html",
+      "examples/locker-dom.html",
+      "examples/info.html",
+      "examples/accordion.html",
+      "examples/ajax.html",
+      "tbk/class.html",
+      "tbk/ui-me.html"
+    ],
+    "resources": []
+  },
+  "index-menu.html": {
+    "refer": [
+      "examples/pullrefresh_main.html",
+      "examples/offcanvas-drag-left.html",
+      "examples/tab-with-viewpagerindicator.html",
+      "examples/tableviews-with-swipe.html",
+      "examples/switches.html"
+    ],
+    "resources": []
+  },
+  "examples/pullrefresh_main.html": {
+    "resources": [
+      "examples/pullrefresh_sub.html"
+    ],
+    "refer": [
+      "examples/pullrefresh_sub.html"
+    ]
+  },
+  "tbk/style.html": {
+    "refer": [
+      "tbk/car.html",
+      "tbk/class.html",
+      "tbk/ui-product.html"
+    ],
+    "resources": []
+  },
+  "tbk/class.html": {
+    "refer": [
+      "tbk/style.html",
+      "tbk/my-products-class.html",
+      "tbk/find.html"
+    ],
+    "resources": []
+  },
+  "tbk/ui-me.html": {
+    "refer": [
+      "tbk/car.html"
+    ],
+    "resources": []
+  },
+  "tbk/car.html": {
+    "refer": [
+      "tbk/ui-me.html",
+      "tbk/order.html",
+      "tbk/find.html"
+    ],
+    "resources": []
+  },
+  "tbk/order.html": {
+    "refer": [
+      "tbk/car.html"
+    ],
+    "resources": []
+  },
+  "tbk/find.html": {
+    "refer": [
+      "tbk/car.html"
+    ],
+    "resources": []
+  },
+  "tbk/ui-product.html": {
+    "refer": [
+      "tbk/style.html"
+    ]
+  }
 }

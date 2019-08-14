@@ -14,479 +14,194 @@
 	<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
 </head>
 <body>
-	<header class="aui-header-default aui-header-fixed ">
-		<a href="#" class="aui-header-item">
-			<i class="aui-icon aui-icon-back"></i>
-		</a>
-		<div class="aui-header-center aui-header-center-clear">
-			<div class="aui-header-search-box">
-				<i class="aui-icon aui-icon-small-search"></i>
-				<input id="" type="text"  placeholder="iphone8 手机钢化膜" class="aui-header-search">
+	<div id="vue">
+		<header class="aui-header-default aui-header-fixed ">
+			<a href="javascript:history.back(-1);" class="aui-header-item">
+				<i class="aui-icon aui-icon-back"></i>
+			</a>
+			<div class="aui-header-center aui-header-center-clear">
+				<div class="aui-header-search-box">
+					<i class="aui-icon aui-icon-small-search"></i>
+					<form action="">
+					   <input id="searchfor" type="searchfor"  placeholder="" onkeyup="if(event.keyCode==13) {fn()}" class="aui-header-search">
+					</form>
+				</div>
 			</div>
-		</div>
-		<a href="#" class="aui-header-item-icon">
-			<i class="aui-icon aui-icon-packet"></i>
-			<i class="aui-icon aui-icon-member"></i>
-		</a>
-	</header>
-	<section class="aui-new-search-content">
-		<div class="aui-new-search-tab">
-			<ul>
-				<li>
-					<span class="aui-active">综合</span>
-				</li>
-				<li>
-					<span>销量</span>
-				</li>
-				<li>
-					<span>价格</span>
-				</li>
-				<li>
-					<span>筛选</span>
-				</li>
-			</ul>
-		</div>
-		<div class="aui-custom-search-tab">
-			<ul>
-				<li>
-					<span class="aui-active">萌宝配送</span>
-				</li>
-				<li>
-					<span>新品</span>
-				</li>
-				<li>
-					<span>品牌</span>
-				</li>
-				<li>
-					<span>前置摄像</span>
-				</li>
-			</ul>
-		</div>
-	</section>
-	<section class="aui-list-product">
-		<div class="aui-list-product-float-item">
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-11.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
+			<a href="#" class="aui-header-item-icon">
+				<i class="aui-icon aui-icon-packet"></i>
+				<i class="aui-icon aui-icon-member"></i>
 			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-12.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
+		</header>
+		<section class="aui-new-search-content">
+			<div class="aui-new-search-tab">
+				<ul>
+					<li>
+						<span class="aui-active">综合</span>
+					</li>
+					<li>
+						<span>销量</span>
+					</li>
+					<li>
+						<span>价格</span>
+					</li>
+					<li>
+						<span>筛选</span>
+					</li>
+				</ul>
+			</div>
+			<div class="aui-custom-search-tab">
+				<ul>
+					<li>
+						<span class="aui-active">萌宝配送</span>
+					</li>
+					<li>
+						<span>新品</span>
+					</li>
+					<li>
+						<span>品牌</span>
+					</li>
+					<li>
+						<span>前置摄像</span>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section class="aui-list-product">
+			<div class="aui-list-product-float-item">
+				<a class="aui-list-product-fl-item" v-for="item in productList" :key="item.item_id" :href="item.coupon_share_url">
+					<div class="aui-list-product-fl-img" style="width: 8rem;">
+						<img :src="item.pict_url" alt="">
 					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
+					<div class="aui-list-product-fl-text">
+						<h3 class="aui-list-product-fl-title" style="font-weigh:bold;">{{item.title}}</h3>
+						<h2 class="aui-list-product-fl-title" style="font-weigh:bold;color: red;">{{item.coupon_info}}</h2>
+						<div class="aui-list-product-fl-mes">
+							<div>
+								<span class="aui-list-product-item-price">
+									<em>¥</em>
+									{{item.zk_final_price}}
+								</span>
+								<span class="aui-list-product-item-del-price">
+									¥{{item.reserve_price}}
+								</span>
+							</div>
+							<div class="aui-btn-purchase">
+								99%好评
+							</div>
 
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-13.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
 						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-14.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
+						<div class="aui-list-self-sell">
+							<span class="aui-self-sell" v-if="item.user_type == 0">集市</span>
+							<span class="aui-self-sell" v-else>天猫</span>
+							<em class="aui-self-sell-em">{{item.shop_dsr}}条评价</em>
 						</div>
 
 					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
+				</a>
+			</div>
+		</section>
+	</div>
+	<script type="text/javascript" src="themes/js/jquery.min.js"></script>
+	<script type="text/javascript" src="themes/js/aui.js"></script>
+	<script type="text/javascript" src="themes/vue2/vue.js"></script>
+	<script type="text/javascript" src="themes/js/base.js"></script>
+    <script>
 
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-15.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
+		$(function () {
+            $("#searchfor").val(localStorage.getItem("searchfor"));
+        })
 
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
+        function fn() {
+            var searchfor = $("#searchfor").val();
+            localStorage.setItem("searchfor",searchfor);
+            $("#searchfor").val(localStorage.getItem("searchfor"));
+            vue.getProductList();
+        }
 
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-16.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
+        var vue = new Vue({
+            el: '#vue',
+            data: {
+                productList:[],
+                items: 1,
+                b:true
+            },
+            created:function () {   //实例初始化创建完成执行
+                this.getProductList();
+                window.addEventListener('scroll', this.onScroll);
+            },
+            methods:{              //定义封装方法
+                onScroll() {
+                    //可滚动容器的高度
+                    let innerHeight = document.querySelector('#vue').clientHeight;
+                    //屏幕尺寸高度
+                    let outerHeight = document.documentElement.clientHeight;
+                    //可滚动容器超出当前窗口显示范围的高度
+                    let scrollTop = document.documentElement.scrollTop;
+                    //scrollTop在页面为滚动时为0，开始滚动后，慢慢增加，滚动到页面底部时，出现innerHeight < (outerHeight + scrollTop)的情况，严格来讲，是接近底部。
+                    console.log(innerHeight + " " + outerHeight + " " + scrollTop);
+                    if ((innerHeight-110) < (outerHeight + scrollTop)) {
+                        if(!this.b){
+                            return;
+                        }
+                        //加载更多操作
+                        console.log("loadmore："+this.items);
+                        this.items += 1;
+                        this.b = false;
+                        this.getProductList();
+                    }
+                },
+                //获取列表
+                getProductList:function () {
+                    var self = this;
+                    // var osStr = self.getOs();
+                    // var netStr = self.getNet();
+                    $.ajax({
+                        type:"POST",
+                        url:CTX+"/open/h5/tbk/getProductList",
+                        dataType:"JSON",
+                        data:{
+                            cat: "",
+                            q:localStorage.getItem("searchfor"),
+                            pageNo:self.items
+                        },
+                        success:function(data){
+                            if (data.code == 0) {
+                                var list = self.productList;
+                                var plist = data.data.tbk_dg_material_optional_response.result_list.map_data;
+                                var arrList = list.concat(plist);
+                                self.productList = arrList;
+                                self.b = true;
+                            } else {
 
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
+                            }
+                        }
+                    });
+                },
+                getOs:function () {
+                    var u = navigator.userAgent;
+                    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
+                        return "android";
+                    } else if (u.indexOf('iPhone') > -1) {//苹果手机
+                        return "ios";
+                    } else{
+                        return "other";
+                    }
 
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-17.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
+                },
+                getNet:function () {
+                    if(navigator.onLine){
+                        return "wifi";
+                    }else{
+                        return "cell";
+                    }
+                }
 
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
+            },
+            watch:{     //监听器
 
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-18.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
+            }
 
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-19.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-20.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-21.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-22.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-23.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-24.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-fl-item">
-				<div class="aui-list-product-fl-img">
-					<img src="themes/img/pd/sf-11.jpg" alt="">
-				</div>
-				<div class="aui-list-product-fl-text">
-					<h3 class="aui-list-product-fl-title">2016夏天新款男士短袖t恤青少年韩版修身印花圆领半袖男装衣服潮领半袖男装衣服潮领半袖男装衣服潮</h3>
-					<div class="aui-list-product-fl-mes">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-btn-purchase">
-							99%好评
-						</div>
-
-					</div>
-					<div class="aui-list-self-sell">
-						<span class="aui-self-sell">自营</span>
-						<em class="aui-self-sell-em">247800条评价</em>
-					</div>
-
-				</div>
-			</a>
-		</div>
-	</section>
-
+        })
+	</script>
 </body>
 </html>

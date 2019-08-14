@@ -15,10 +15,11 @@
 	<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
 	<style type="text/css">
 
-		#scrollBg{ width: 100%; height: 45px; line-height: 45px;background: rgba(251,55,67,0.8); display: none; z-index:-1; position: fixed; left: 0; top:0; text-align: center; font-size: 20px; color: #fff; }
+		#scrollBg{ width: 100%; height: 45px; line-height: 45px;background: rgba(65, 0, 137, 0.8); display: none; z-index:-1; position: fixed; left: 0; top:0; text-align: center; font-size: 20px; color: #fff; }
 	</style>
 </head>
 <body>
+  <div id="vue">
 
 	<header class="aui-header-default aui-header-fixed aui-header-clear-bg"> <!-- aui-header-clear-bg 清除背景色 -->
 		<a href="#" class="aui-header-item">
@@ -27,7 +28,9 @@
 		<div class="aui-header-center aui-header-center-clear"  style="margin-right:50px;">
 			<div class="aui-header-search-box" style="background-color:#fff">
 				<i class="aui-icon aui-icon-small-search"></i>
-				<input id="" type="text"  placeholder="手机狂欢节 抢 iPhone X" class="aui-header-search">
+				<form action="">
+				  <input id="searchfor" type="search"  placeholder="手机狂欢节 抢 iPhone X" onkeyup="if(event.keyCode==13) {fn()}" class="aui-header-search">
+				</form>
 			</div>
 		</div>
 		<a href="#" class="aui-header-item-icon" style="position:absolute; right:-35px; top:0;">
@@ -105,7 +108,7 @@
 				</a>
 			</div>
 		</section>
-		<section class="aui-content-six aui-border-t " style="background-color: #fff;">
+		<!--<section class="aui-content-six aui-border-t " style="background-color: #fff;">
 			<div class="aui-flex-col aui-flex-center aui-border-tb">
 				<div class="aui-flex-item-4 aui-flex-row aui-flex-middle aui-padded-10 aui-border-b" onclick="goTbkUrl(1)">
 					<h3 class="aui-text-danger">电器城抢购</h3>
@@ -136,16 +139,16 @@
 					</div>
 				</div>
 			</div>
-		</section>
-		<div class="aui-avd-content clearfix">
+		</section>-->
+		<!--<div class="aui-avd-content clearfix">
 			<a href="#">
 				<img src="tbk/themes/img/pd/cf-1.jpg" alt="">
 			</a>
 			<a href="#">
 				<img src="tbk/themes/img/pd/cf-3.jpg" alt="">
 			</a>
-		</div>
-		<div class="aui-title-head">
+		</div>-->
+		<!--<div class="aui-title-head">
 			<img src="tbk/themes/img/icon/i-i1.png"  alt="">
 		</div>
 		<div class="aui-slide-box aui-slide-box-clear">
@@ -471,331 +474,31 @@
 
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 		<div class="aui-recommend">
 			<img src="tbk/themes/img/bg/icon-tj1.jpg" alt="">
-			<!--<h2>为你推荐</h2>-->
+			<!--<h2>猜你喜欢的</h2>-->
 		</div>
 		<section class="aui-list-product">
 			<div class="aui-list-product-box">
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
+				<a  v-for="item in productList" :key="item.seller_id" :href="item.coupon_share_url" class="aui-list-product-item">
 					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-15.jpg" alt="">
+						<img :src="item.pict_url" alt="">
 					</div>
 					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
+						<h3>{{item.title}}</h3>
 						<div class="aui-list-product-mes-box">
 							<div>
 							<span class="aui-list-product-item-price">
 								<em>¥</em>
-								399.99
+								{{item.zk_final_price}}
 							</span>
 								<span class="aui-list-product-item-del-price">
-								¥495.65
+								¥{{item.zk_final_price}}
 							</span>
 							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-14.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-13.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-12.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-11.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-10.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-9.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-8.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-16.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-17.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-18.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-19.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-20.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-21.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-22.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="tbk/ui-product.html" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="tbk/themes/img/pd/sf-23.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
+							<!--<div class="aui-comment">986评论</div>-->
 						</div>
 					</div>
 				</a>
@@ -825,8 +528,11 @@
 			<span class="aui-footer-item-text">我的</span>
 		</a>
 	</footer>
+  </div>
 	<script type="text/javascript" src="tbk/themes/js/jquery.min.js"></script>
 	<script type="text/javascript" src="tbk/themes/js/aui.js"></script>
+	<script type="text/javascript" src="tbk/themes/vue2/vue.js"></script>
+	<script type="text/javascript" src="tbk/themes/js/base.js"></script>
 	<script type="text/javascript">
         $(function () {
             //绑定滚动条事件
@@ -863,6 +569,96 @@
         		window.location.href ='https://s.click.taobao.com/5S5NU6w';
         	}
         }
+        
+        function fn() {
+            var searchfor = $("#searchfor").val();
+            localStorage.setItem("searchfor",searchfor);
+            window.location.href = "tbk/my-products-class.html";
+        }
+        
+    var vue = new Vue({
+        el: '#vue',
+        data: {
+          productList:[],
+          items: 1,
+		  b:true
+        },
+        created:function () {   //实例初始化创建完成执行
+           this.getProductList();
+            window.addEventListener('scroll', this.onScroll);
+        },
+        methods:{              //定义封装方法
+            onScroll() {
+                //可滚动容器的高度
+                let innerHeight = document.querySelector('#vue').clientHeight;
+                //屏幕尺寸高度
+                let outerHeight = document.documentElement.clientHeight;
+                //可滚动容器超出当前窗口显示范围的高度
+                let scrollTop = document.documentElement.scrollTop;
+                //scrollTop在页面为滚动时为0，开始滚动后，慢慢增加，滚动到页面底部时，出现innerHeight < (outerHeight + scrollTop)的情况，严格来讲，是接近底部。
+                console.log(innerHeight + " " + outerHeight + " " + scrollTop);
+                if ((innerHeight-110) < (outerHeight + scrollTop)) {
+                    if(!this.b){
+                        return;
+					}
+                    //加载更多操作
+                    console.log("loadmore："+this.items);
+                    this.items += 1;
+                    this.b = false;
+                    this.getProductList();
+                }
+            },
+            //获取列表
+            getProductList:function () {
+                var self = this;
+                // var osStr = self.getOs();
+                // var netStr = self.getNet();
+                $.ajax({
+                    type:"POST",
+                    url:CTX+"/open/h5/tbk/getYouLikeProductList",
+                    dataType:"JSON",
+                    data:{
+                        pageNo:self.items
+                    },
+                    success:function(data){
+                        if (data.code == 0) {
+                            var list = self.productList;
+                            var plist = data.data.tbk_dg_optimus_material_response.result_list.map_data;
+							var arrList = list.concat(plist);
+                            self.productList = arrList;
+                            self.b = true;
+                        } else {
+                            
+                        }
+                    }
+                });
+            },
+			getOs:function () {
+                var u = navigator.userAgent;
+                if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
+                    return "android";
+                } else if (u.indexOf('iPhone') > -1) {//苹果手机
+                    return "ios";
+                } else{
+                    return "other";
+                }
+
+            },
+			getNet:function () {
+                if(navigator.onLine){
+                    return "wifi";
+				}else{
+                    return "cell";
+				}
+            }
+
+        },
+        watch:{     //监听器
+          
+        }
+
+    })
+       
 	</script>
 </body>
 </html>
