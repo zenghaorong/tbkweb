@@ -12,6 +12,32 @@
 	<link rel="stylesheet" href="themes/css/home.css">
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+	<style>
+		.aui-new-search-tab .aui-active:after {
+			display: block;
+			background-size: 8px 8px;
+			content: "";
+			display: inline-block;
+			width: 8px;
+			height: 9px;
+			margin-left: 4px;
+			position: absolute;
+			left: 58px;
+			top: 14px;
+		}
+		.aui-new-search-tab .aui-active:after {
+			display: block;
+			background-size: 8px 8px;
+			content: "";
+			display: inline-block;
+			width: 8px;
+			height: 9px;
+			margin-left: 4px;
+			position: absolute;
+			left: 58px;
+			top: 14px;
+		}
+	</style>
 </head>
 <body>
 	<div id="vue">
@@ -28,13 +54,13 @@
 				</div>
 			</div>
 			<a href="#" class="aui-header-item-icon">
-				<i class="aui-icon aui-icon-packet"></i>
-				<i class="aui-icon aui-icon-member"></i>
+				<!--<i class="aui-icon aui-icon-packet"></i>-->
+				<!--<i class="aui-icon aui-icon-member"></i>-->
 			</a>
 		</header>
 		<section class="aui-new-search-content">
 			<div class="aui-new-search-tab">
-				<ul>
+				<ul id="liang">
 					<li>
 						<span class="aui-active">综合</span>
 					</li>
@@ -45,30 +71,24 @@
 						<span>价格</span>
 					</li>
 					<li>
-						<span>筛选</span>
+						<span>推广量</span>
 					</li>
 				</ul>
 			</div>
 			<div class="aui-custom-search-tab">
-				<ul>
+				<ul id="soter">
 					<li>
-						<span class="aui-active">萌宝配送</span>
+						<span class="aui-active">升序</span>
 					</li>
 					<li>
-						<span>新品</span>
-					</li>
-					<li>
-						<span>品牌</span>
-					</li>
-					<li>
-						<span>前置摄像</span>
+						<span>降序</span>
 					</li>
 				</ul>
 			</div>
 		</section>
 		<section class="aui-list-product">
 			<div class="aui-list-product-float-item">
-				<a class="aui-list-product-fl-item" v-for="item in productList" :key="item.item_id" :href="item.coupon_share_url">
+				<a class="aui-list-product-fl-item" v-for="item in productList" :key="item.item_id" @click="goDetail(item)">
 					<div class="aui-list-product-fl-img" style="width: 8rem;">
 						<img :src="item.pict_url" alt="">
 					</div>
@@ -99,6 +119,7 @@
 					</div>
 				</a>
 			</div>
+			<p style="width: 50px;margin: 5px auto;">加载中...</p>
 		</section>
 	</div>
 	<script type="text/javascript" src="themes/js/jquery.min.js"></script>
@@ -118,12 +139,20 @@
             vue.getProductList();
         }
 
+
+        /**
+		 * ，销量（total_sales），淘客佣金比率（tk_rate），
+		 * 累计推广量（tk_total_sales），总支出佣金（tk_total_commi），价格（price）
+         */
         var vue = new Vue({
             el: '#vue',
             data: {
                 productList:[],
                 items: 1,
-                b:true
+                b:true,
+                order:'_asc', //排序_des（降序），排序_asc（升序）
+                orderType:'',
+                sort:'',
             },
             created:function () {   //实例初始化创建完成执行
                 this.getProductList();
@@ -136,7 +165,7 @@
                     //屏幕尺寸高度
                     let outerHeight = document.documentElement.clientHeight;
                     //可滚动容器超出当前窗口显示范围的高度
-                    let scrollTop = document.documentElement.scrollTop;
+                    let scrollTop = document.body.scrollTop + document.documentElement.scrollTop;
                     //scrollTop在页面为滚动时为0，开始滚动后，慢慢增加，滚动到页面底部时，出现innerHeight < (outerHeight + scrollTop)的情况，严格来讲，是接近底部。
                     console.log(innerHeight + " " + outerHeight + " " + scrollTop);
                     if ((innerHeight-110) < (outerHeight + scrollTop)) {
@@ -153,16 +182,16 @@
                 //获取列表
                 getProductList:function () {
                     var self = this;
-                    // var osStr = self.getOs();
-                    // var netStr = self.getNet();
+                    self.sort = self.orderType + self.order;
                     $.ajax({
                         type:"POST",
                         url:CTX+"/open/h5/tbk/getProductList",
                         dataType:"JSON",
                         data:{
-                            cat: "",
+                            cat: localStorage.getItem("cId"),
                             q:localStorage.getItem("searchfor"),
-                            pageNo:self.items
+                            pageNo:self.items,
+                            sort:self.sort
                         },
                         success:function(data){
                             if (data.code == 0) {
@@ -177,31 +206,53 @@
                         }
                     });
                 },
-                getOs:function () {
-                    var u = navigator.userAgent;
-                    if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {//安卓手机
-                        return "android";
-                    } else if (u.indexOf('iPhone') > -1) {//苹果手机
-                        return "ios";
-                    } else{
-                        return "other";
-                    }
-
-                },
-                getNet:function () {
-                    if(navigator.onLine){
-                        return "wifi";
-                    }else{
-                        return "cell";
-                    }
-                }
-
+				goDetail(item){
+                    if(item.coupon_share_url == null || item.coupon_share_url== ''){
+                        window.location.href = item.url;
+					}else{
+                        window.location.href = item.coupon_share_url;
+					}
+				}
             },
             watch:{     //监听器
 
             }
 
         })
+
+		$("#liang li").click(function () {
+            $("#liang li span").removeClass("aui-active");
+            $(this).find("span").addClass("aui-active");
+            if($(this).index() == 1){
+               vue.orderType = "total_sales";
+			}
+            if($(this).index() == 2){
+                vue.orderType = "price";
+            }
+            if($(this).index() == 3){
+                vue.orderType = "tk_total_sales";
+            }
+            vue.getProductList();
+        })
+
+        $("#soter li").click(function () {
+            $("#soter li span").removeClass("aui-active");
+            $(this).find("span").addClass("aui-active");
+            if($(this).index() == 0){
+                vue.order = "_asc";
+            }
+            if($(this).index() == 1){
+                vue.order = "_desc";
+            }
+            vue.getProductList();
+		})
+
+
+        // $(function () {
+        //     $(".aui-new-search-tab .aui-active:after").css("background-image","");
+        // })
+
+
 	</script>
 </body>
 </html>

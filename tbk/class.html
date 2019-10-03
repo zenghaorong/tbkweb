@@ -14,7 +14,7 @@
 	<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
 </head>
 <body>
-
+<div id="vue">
 	<header class="aui-header-default aui-header-fixed ">
 		<a href="#" class="aui-header-item">
 			<i class="aui-icon aui-icon-back"></i>
@@ -26,186 +26,507 @@
 			</div>
 		</div>
 		<a href="#" class="aui-header-item-icon">
-			<i class="aui-icon aui-icon-packet"></i>
-			<i class="aui-icon aui-icon-member"></i>
+			<!--<i class="aui-icon aui-icon-packet"></i>-->
+			<!--<i class="aui-icon aui-icon-member"></i>-->
 		</a>
 	</header>
 	<section class="aui-scroll-contents">
 		<div class="aui-scroll-box" data-ydui-scrolltab>
 			<div class="aui-scroll-nav">
-				<a href="#" class="aui-scroll-item aui-crt">
+				<a href="#" @click="selectChild(item,index)" class="aui-scroll-item" v-for="(item,index) in productList">
 					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">热门推荐</div>
+					<div class="aui-scroll-item-text">{{item.name}}</div>
 				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">美容彩妆</div>
-				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">母婴专区</div>
-				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">箱包配饰</div>
-				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">家居个护</div>
-				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">营养保健</div>
-				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">服饰鞋靴</div>
-				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">数码家电</div>
-				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">运动户外</div>
-				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">汽车用品</div>
-				</a>
-				<a href="#" class="aui-scroll-item aui-crt">
-					<div class="aui-scroll-item-icon"></div>
-					<div class="aui-scroll-item-text">生活旅行</div>
-				</a>
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">美容彩妆</div>-->
+				<!--</a>-->
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">母婴专区</div>-->
+				<!--</a>-->
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">箱包配饰</div>-->
+				<!--</a>-->
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">家居个护</div>-->
+				<!--</a>-->
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">营养保健</div>-->
+				<!--</a>-->
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">服饰鞋靴</div>-->
+				<!--</a>-->
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">数码家电</div>-->
+				<!--</a>-->
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">运动户外</div>-->
+				<!--</a>-->
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">汽车用品</div>-->
+				<!--</a>-->
+				<!--<a href="#" class="aui-scroll-item aui-crt">-->
+					<!--<div class="aui-scroll-item-icon"></div>-->
+					<!--<div class="aui-scroll-item-text">生活旅行</div>-->
+				<!--</a>-->
 			</div>
 			<div class="aui-scroll-content">
+				<!--<div class="aui-scroll-content-item">-->
+					<!--&lt;!&ndash;活动图片-家电大促销&ndash;&gt;-->
+					<!--&lt;!&ndash;<div class="aui-class-img">&ndash;&gt;-->
+						<!--&lt;!&ndash;<img src="themes/img/pd/cf-4.jpg" alt="">&ndash;&gt;-->
+					<!--&lt;!&ndash;</div>&ndash;&gt;-->
+					<!--<h2 class="aui-scroll-content-title">热门推荐</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="my-products-class.html" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="my-products-class.html" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="my-products-class.html" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="my-products-class.html" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="my-products-class.html" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="my-products-class.html" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
+				<!--<div class="aui-scroll-content-item">-->
+					<!--&lt;!&ndash;活动图片-家装促销&ndash;&gt;-->
+					<!--&lt;!&ndash;<div class="aui-class-img">&ndash;&gt;-->
+						<!--&lt;!&ndash;<img src="themes/img/pd/cf-8.jpg" alt="">&ndash;&gt;-->
+					<!--&lt;!&ndash;</div>&ndash;&gt;-->
+					<!--<h2 class="aui-scroll-content-title">美容彩妆</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
+				<!--<div class="aui-scroll-content-item">-->
+					<!--<h2 class="aui-scroll-content-title">母婴专区</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
+				<!--<div class="aui-scroll-content-item">-->
+					<!--<h2 class="aui-scroll-content-title">箱包配饰</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
+				<!--<div class="aui-scroll-content-item">-->
+					<!--<h2 class="aui-scroll-content-title">居家个护</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
+				<!--<div class="aui-scroll-content-item">-->
+					<!--<h2 class="aui-scroll-content-title">营养保健</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
+				<!--<div class="aui-scroll-content-item">-->
+					<!--<h2 class="aui-scroll-content-title">服饰鞋靴</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
+				<!--<div class="aui-scroll-content-item">-->
+					<!--<h2 class="aui-scroll-content-title">数码家电</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
+				<!--<div class="aui-scroll-content-item">-->
+					<!--<h2 class="aui-scroll-content-title">户外运动</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
+				<!--<div class="aui-scroll-content-item">-->
+					<!--<h2 class="aui-scroll-content-title">汽车用品</h2>-->
+					<!--<section class="aui-grid-content">-->
+						<!--<div class="aui-grid-row aui-grid-row-clear">-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">手机数码</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">笔记本</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">空调</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">儿童文学</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">啤酒</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">海参</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">床</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">衣物清洁</p>-->
+							<!--</a>-->
+							<!--<a href="#" class="aui-grid-row-item">-->
+								<!--<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>-->
+								<!--<p class="aui-grid-row-label">羽绒服</p>-->
+							<!--</a>-->
+						<!--</div>-->
+					<!--</section>-->
+				<!--</div>-->
 				<div class="aui-scroll-content-item">
-					<div class="aui-class-img">
-						<img src="themes/img/pd/cf-4.jpg" alt="">
-					</div>
-					<h2 class="aui-scroll-content-title">热门推荐</h2>
+					<h2 class="aui-scroll-content-title">{{fName}}</h2>
 					<section class="aui-grid-content">
 						<div class="aui-grid-row aui-grid-row-clear">
-							<a href="my-products-class.html" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>
-								<p class="aui-grid-row-label">手机数码</p>
-							</a>
-							<a href="my-products-class.html" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>
-								<p class="aui-grid-row-label">笔记本</p>
-							</a>
-							<a href="my-products-class.html" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>
-								<p class="aui-grid-row-label">空调</p>
-							</a>
-							<a href="my-products-class.html" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>
-								<p class="aui-grid-row-label">儿童文学</p>
-							</a>
-							<a href="my-products-class.html" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>
-								<p class="aui-grid-row-label">啤酒</p>
-							</a>
-							<a href="my-products-class.html" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>
-								<p class="aui-grid-row-label">海参</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>
-								<p class="aui-grid-row-label">床</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>
-								<p class="aui-grid-row-label">衣物清洁</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>
-								<p class="aui-grid-row-label">羽绒服</p>
+							<a @click="goProducts(o)" class="aui-grid-row-item" v-for="o in productChildList">
+								<i class="aui-icon-large"><img :src="o.iconUrl" alt=""></i>
+								<p class="aui-grid-row-label">{{o.name}}</p>
 							</a>
 						</div>
 					</section>
-				</div>
-				<div class="aui-scroll-content-item">
-					<div class="aui-class-img">
-						<img src="themes/img/pd/cf-8.jpg" alt="">
-					</div>
-					<h2 class="aui-scroll-content-title">美容彩妆</h2>
-					<section class="aui-grid-content">
-						<div class="aui-grid-row aui-grid-row-clear">
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-1.jpg" alt=""></i>
-								<p class="aui-grid-row-label">手机数码</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-2.jpg" alt=""></i>
-								<p class="aui-grid-row-label">笔记本</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-3.jpg" alt=""></i>
-								<p class="aui-grid-row-label">空调</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-4.jpg" alt=""></i>
-								<p class="aui-grid-row-label">儿童文学</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-5.jpg" alt=""></i>
-								<p class="aui-grid-row-label">啤酒</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-6.jpg" alt=""></i>
-								<p class="aui-grid-row-label">海参</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-7.jpg" alt=""></i>
-								<p class="aui-grid-row-label">床</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-8.jpg" alt=""></i>
-								<p class="aui-grid-row-label">衣物清洁</p>
-							</a>
-							<a href="#" class="aui-grid-row-item">
-								<i class="aui-icon-large aui-icon-sign"><img src="themes/img/ad/x-sf-9.jpg" alt=""></i>
-								<p class="aui-grid-row-label">羽绒服</p>
-							</a>
-						</div>
-					</section>
-				</div>
-				<div class="aui-scroll-content-item">
-					<strong class="aui-scroll-content-title">母婴专区</strong>
-					<div style="height: 300px;background-color: #ededed;"></div>
-				</div>
-				<div class="aui-scroll-content-item">
-					<strong class="aui-scroll-content-title">箱包配饰</strong>
-					<div style="height: 300px;background-color: #ededed;"></div>
-				</div>
-				<div class="aui-scroll-content-item">
-					<strong class="aui-scroll-content-title">家居个护</strong>
-					<div style="height: 300px;background-color: #ededed;"></div>
-				</div>
-				<div class="aui-scroll-content-item">
-					<strong class="aui-scroll-content-title">营养保健</strong>
-					<div style="height: 300px;background-color: #ededed;"></div>
-				</div>
-				<div class="aui-scroll-content-item">
-					<strong class="aui-scroll-content-title">服饰鞋靴</strong>
-					<div style="height: 300px;background-color: #ededed;"></div>
-				</div>
-				<div class="aui-scroll-content-item">
-					<strong class="aui-scroll-content-title">数码家电</strong>
-					<div style="height: 300px;background-color: #ededed;"></div>
-				</div>
-				<div class="aui-scroll-content-item">
-					<strong class="aui-scroll-content-title">运动户外</strong>
-					<div style="height: 300px;background-color: #ededed;"></div>
-				</div>
-				<div class="aui-scroll-content-item">
-					<strong class="aui-scroll-content-title">汽车用品</strong>
-					<div style="height: 300px;background-color: #ededed;"></div>
-				</div>
-				<div class="aui-scroll-content-item">
-					<strong class="aui-scroll-content-title">生活旅行</strong>
-					<div style="height: 300px;background-color: #ededed;"></div>
 				</div>
 			</div>
 		</div>
@@ -213,29 +534,113 @@
 
 
 	<footer class="aui-footer-default aui-footer-fixed">
-		<a href="style.html" class="aui-footer-item ">
+		<a href="../index.html" class="aui-footer-item">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-home"></span>
 			<span class="aui-footer-item-text">首页</span>
 		</a>
-		<a href="class.html" class="aui-footer-item aui-footer-active">
+		<a href="javascript:void(0);" class="aui-footer-item aui-footer-active">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-class"></span>
 			<span class="aui-footer-item-text">分类</span>
 		</a>
-		<a href="find.html" class="aui-footer-item">
+		<a href="./find.html" class="aui-footer-item">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-find"></span>
 			<span class="aui-footer-item-text">发现</span>
 		</a>
-		<a href="car.html" class="aui-footer-item">
-			<span class="aui-footer-item-icon aui-icon aui-footer-icon-car"></span>
-			<span class="aui-footer-item-text">购物车</span>
-		</a>
-		<a href="ui-me.html" class="aui-footer-item">
+		<a href="./ui-me.html" class="aui-footer-item">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-me"></span>
 			<span class="aui-footer-item-text">我的</span>
 		</a>
 	</footer>
-
+</div>
 	<script src="themes/js/jquery.min.js"></script>
 	<script src="themes/js/aui.js"></script>
+    <script type="text/javascript" src="themes/vue2/vue.js"></script>
+    <script type="text/javascript" src="themes/js/base.js"></script>
+    <script type="text/javascript">
+        var vue = new Vue({
+            el: '#vue',
+            data: {
+                productList:[],
+                productChildList:[],
+                fName:'全部',
+                pId:'',
+                items: 1,
+                b:true
+            },
+            created:function () {   //实例初始化创建完成执行
+                this.getProductList();
+            },
+            methods:{              //定义封装方法
+                //获取列表
+                getProductList:function () {
+                    var self = this;
+                    $.ajax({
+                        type:"POST",
+                        url:CTX+"/open/h5/tbkMain/getProductClass",
+                        dataType:"JSON",
+                        data:{
+
+                        },
+                        success:function(data){
+                            if (data.code == 0) {
+                               self.productList = data.data;
+                               if(self.productList.length > 0){
+                                   self.fName = self.productList[0].name;
+                                   self.pId = self.productList[0].id;
+                                   self.getProductChiladList();
+                                   setTimeout(function () {
+                                       $(".aui-scroll-item").eq(0).addClass("aui-crt crt");
+                                   },100)
+                               }
+                            } else {
+
+                            }
+                        }
+                    });
+                },
+                getProductChiladList:function () {
+                    var self = this;
+                    $.ajax({
+                        type:"POST",
+                        url:CTX+"/open/h5/tbkMain/getProductChildClass",
+                        dataType:"JSON",
+                        data:{
+                            pId:self.pId
+                        },
+                        success:function(data){
+                            if (data.code == 0) {
+                                self.productChildList = data.data;
+                            } else {
+
+                            }
+                        }
+                    });
+                },
+                selectChild:function(item,index){
+                  $(".aui-scroll-item").removeClass("aui-crt crt");
+                  $(".aui-scroll-item").eq(index).addClass("aui-crt crt");
+                  this.fName = item.name;
+                  this.pId = item.id;
+                  this.productChildList = [];
+                  this.getProductChiladList();
+                },
+                goProducts:function (o) {
+                    if(o.cId != null){
+                        localStorage.setItem("cId",o.cId);
+                        localStorage.setItem("searchfor","");
+                    }else {
+                        localStorage.setItem("cId","");
+                        localStorage.setItem("searchfor",this.fName+" "+o.name);
+                    }
+                    window.location.href = "./my-products-class.html";
+                }
+
+            },
+            watch:{     //监听器
+
+            }
+
+        })
+    </script>
 </body>
 </html>

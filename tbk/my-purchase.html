@@ -77,189 +77,86 @@
 
 </head>
 <body style="background:#eee">
-
+<div id="vue">
 	<header class="aui-header-default aui-header-fixed ">
 		<a href="javascript:history.back(-1)" class="aui-header-item">
 			<i class="aui-icon aui-icon-back"></i>
 		</a>
-		<div class="aui-header-center aui-header-center-clear">
+		<div class="aui-header-center aui-header-center-clear" style="margin-left:0%;">
 			<div class="aui-header-center-logo">
 				<div class="">拼团购物</div>
 			</div>
 		</div>
-		<a href="#" class="aui-header-item-icon"   style="min-width:0">
-			<i class="aui-icon aui-icon-search"></i>
-		</a>
+		<!--<a href="#" class="aui-header-item-icon"   style="min-width:0">-->
+			<!--<i class="aui-icon aui-icon-search"></i>-->
+		<!--</a>-->
 	</header>
-	<section class="n-tabs">
-		<ul class="n-tabContainer" id="auto-id-1509603311057">
-			<li class="n-tabItem" data-id="homepage">
-				<a href="#" id="homepage" class="current">精选</a>
-			</li>
-			<li class="n-tabItem" data-id="44114">
-				<a href="#" id="44114" class="">母婴</a>
-			</li>
-			<li class="n-tabItem" data-id="15394">
-				<a href="#" id="15394" class="">美妆</a>
-			</li>
-			<li class="n-tabItem" data-id="01436">
-				<a href="#" id="01436" class="">保健品</a>
-			</li>
-			<li class="n-tabItem" data-id="18211">
-				<a href="#" id="18211" class="">家居生活</a>
-			</li>
-			<li class="n-tabItem" data-id="83651">
-				<a href="#" id="83651" class="">生鲜</a>
-			</li>
-			<li class="n-tabItem" data-id="37957">
-				<a href="#" id="37957" class="">数码</a>
-			</li>
-			<li class="n-tabItem" data-id="74029">
-				<a href="#" id="74029" class="">个人洗护</a>
-			</li>
-			<li class="n-tabItem" data-id="73179">
-				<a href="#" id="73179" class="">海外直邮</a>
-			</li>
-			<li class="n-tabItem" data-id="41804">
-				<a href="#" id="41804" class="">服饰鞋靴</a>
-			</li>
-		</ul>
-	</section>
+	<!--<section class="n-tabs">-->
+		<!--<ul class="n-tabContainer" id="auto-id-1509603311057">-->
+			<!--<li class="n-tabItem" data-id="homepage">-->
+				<!--<a href="#" id="homepage" class="current">精选</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="44114">-->
+				<!--<a href="#" id="44114" class="">母婴</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="15394">-->
+				<!--<a href="#" id="15394" class="">美妆</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="01436">-->
+				<!--<a href="#" id="01436" class="">保健品</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="18211">-->
+				<!--<a href="#" id="18211" class="">家居生活</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="83651">-->
+				<!--<a href="#" id="83651" class="">生鲜</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="37957">-->
+				<!--<a href="#" id="37957" class="">数码</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="74029">-->
+				<!--<a href="#" id="74029" class="">个人洗护</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="73179">-->
+				<!--<a href="#" id="73179" class="">海外直邮</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="41804">-->
+				<!--<a href="#" id="41804" class="">服饰鞋靴</a>-->
+			<!--</li>-->
+		<!--</ul>-->
+	<!--</section>-->
 	<section class="aui-Purchase-content">
 		<div class="aui-list-product-box aui-list-product-box-clear">
-			<a href="javascript:;" class="aui-list-product-item">
+			<a href="javascript:;" class="aui-list-product-item" v-for="item in productList" :key="item.ju_id" @click="goDetail(item)">
 				<div class="aui-list-product-item-img">
-					<img src="themes/img/pd/sf-8.jpg" alt="">
-					<span class="aui-Purchase-tag">2人团</span>
+					<img :src="item.pic_url_for_w_l" alt="">
+					<!--<span class="aui-Purchase-tag">2人团</span>-->
 				</div>
 				<div class="aui-list-product-item-text">
-					<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
+					<h3>{{item.title}}</h3>
 					<div class="aui-list-product-mes-box">
 						<div>
 							<span class="aui-list-product-item-price">
 								<em>¥</em>
-								399.99
+								{{item.act_price}}
 							</span>
 							<span class="aui-list-product-item-del-price">
-								¥495.65
+								¥{{item.orig_price}}
 							</span>
 						</div>
-						<div class="aui-comment">已团134件</div>
-					</div>
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-item">
-				<div class="aui-list-product-item-img">
-					<img src="themes/img/pd/sf-9.jpg" alt="">
-					<span class="aui-Purchase-tag">2人团</span>
-				</div>
-				<div class="aui-list-product-item-text">
-					<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-					<div class="aui-list-product-mes-box">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-comment">已团134件</div>
-					</div>
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-item">
-				<div class="aui-list-product-item-img">
-					<img src="themes/img/pd/sf-10.jpg" alt="">
-					<span class="aui-Purchase-tag">2人团</span>
-				</div>
-				<div class="aui-list-product-item-text">
-					<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-					<div class="aui-list-product-mes-box">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-comment">已团134件</div>
-					</div>
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-item">
-				<div class="aui-list-product-item-img">
-					<img src="themes/img/pd/sf-11.jpg" alt="">
-					<span class="aui-Purchase-tag">2人团</span>
-				</div>
-				<div class="aui-list-product-item-text">
-					<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-					<div class="aui-list-product-mes-box">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-comment">已团134件</div>
-					</div>
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-item">
-				<div class="aui-list-product-item-img">
-					<img src="themes/img/pd/sf-12.jpg" alt="">
-					<span class="aui-Purchase-tag">2人团</span>
-				</div>
-				<div class="aui-list-product-item-text">
-					<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-					<div class="aui-list-product-mes-box">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-comment">已团134件</div>
-					</div>
-				</div>
-			</a>
-			<a href="javascript:;" class="aui-list-product-item">
-				<div class="aui-list-product-item-img">
-					<img src="themes/img/pd/sf-13.jpg" alt="">
-					<span class="aui-Purchase-tag">2人团</span>
-				</div>
-				<div class="aui-list-product-item-text">
-					<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-					<div class="aui-list-product-mes-box">
-						<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-							<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-						</div>
-						<div class="aui-comment">已团134件</div>
+						<!--<div class="aui-comment">已团134件</div>-->
 					</div>
 				</div>
 			</a>
 
 		</div>
 	</section>
-
+</div>
 
 	<script type="text/javascript" src="themes/js/jquery.min.js"></script>
 	<script type="text/javascript" src="themes/js/aui.js"></script>
+	<script type="text/javascript" src="themes/vue2/vue.js"></script>
+	<script type="text/javascript" src="themes/js/base.js"></script>
 	<script type="text/javascript" >
         /**
          * Javascript API调用Tab
@@ -283,6 +180,76 @@
                 console.log('索引：%s - [%s]已经打开了', e.index, $(this).text());
             });
         }(jQuery);
+
+
+        var vue = new Vue({
+            el: '#vue',
+            data: {
+                productList:[],
+                items: 1,
+                b:true
+            },
+            created:function () {   //实例初始化创建完成执行
+                this.getProductList();
+                window.addEventListener('scroll', this.onScroll);
+            },
+            methods:{              //定义封装方法
+                onScroll() {
+                    //可滚动容器的高度
+                    let innerHeight = document.querySelector('#vue').clientHeight;
+                    //屏幕尺寸高度
+                    let outerHeight = document.documentElement.clientHeight;
+                    //可滚动容器超出当前窗口显示范围的高度
+                    let scrollTop = document.body.scrollTop + document.documentElement.scrollTop;
+                    //scrollTop在页面为滚动时为0，开始滚动后，慢慢增加，滚动到页面底部时，出现innerHeight < (outerHeight + scrollTop)的情况，严格来讲，是接近底部。
+                    console.log(innerHeight + " " + outerHeight + " " + scrollTop);
+                    if ((innerHeight-110) < (outerHeight + scrollTop)) {
+                        if(!this.b){
+                            return;
+                        }
+                        //加载更多操作
+                        console.log("loadmore："+this.items);
+                        this.items += 1;
+                        this.b = false;
+                        this.getProductList();
+                    }
+                },
+                //获取列表
+                getProductList:function () {
+                    var self = this;
+                    $.ajax({
+                        type:"POST",
+                        url:CTX+"/open/h5/tbk/getJhsProductList",
+                        dataType:"JSON",
+                        data:{
+                            pageNo:self.items,
+                            cid:'',  //类目编号
+                            str:'' //搜索字段
+                        },
+                        success:function(data){
+                            if (data.code == 0) {
+                                var list = self.productList;
+                                var plist = data.data.ju_items_search_response.result.model_list.items;
+                                var arrList = list.concat(plist);
+                                self.productList = arrList;
+                                self.b = true;
+                            } else {
+
+                            }
+                        }
+                    });
+                },
+                goDetail(item){
+
+                    window.location.href = item.wap_url;
+
+                }
+            },
+            watch:{     //监听器
+
+            }
+
+        })
 	</script>
 
 </body>

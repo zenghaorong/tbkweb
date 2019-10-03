@@ -76,7 +76,7 @@
 	</style>
 </head>
 <body>
-
+<div id="vue">
 	<header class="aui-header-default aui-header-fixed ">
 		<a href="#" class="aui-header-item">
 			<i class="aui-icon aui-icon-back"></i>
@@ -87,771 +87,202 @@
 			</div>
 		</div>
 		<a href="#" class="aui-header-item-icon">
-			<i class="aui-icon aui-icon-packet"></i>
-			<i class="aui-icon aui-icon-member"></i>
+			<!--<i class="aui-icon aui-icon-packet"></i>-->
+			<!--<i class="aui-icon aui-icon-member"></i>-->
 		</a>
 	</header>
-	<section class="n-tabs">
-		<ul class="n-tabContainer" id="auto-id-1509603311057">
-			<li class="n-tabItem" data-id="homepage">
-				<a href="#" id="homepage" class="current">精选</a>
-			</li>
-			<li class="n-tabItem" data-id="44114">
-				<a href="#" id="44114" class="">直播</a>
-			</li>
-			<li class="n-tabItem" data-id="15394">
-				<a href="#" id="15394" class="">视频购</a>
-			</li>
-			<li class="n-tabItem" data-id="01436">
-				<a href="#" id="01436" class="">社区</a>
-			</li>
-			<li class="n-tabItem" data-id="18211">
-				<a href="#" id="18211" class="">家居生活</a>
-			</li>
-			<li class="n-tabItem" data-id="83651">
-				<a href="#" id="83651" class="">生鲜</a>
-			</li>
-			<li class="n-tabItem" data-id="37957">
-				<a href="#" id="37957" class="">数码</a>
-			</li>
-			<li class="n-tabItem" data-id="74029">
-				<a href="#" id="74029" class="">个人洗护</a>
-			</li>
-			<li class="n-tabItem" data-id="73179">
-				<a href="#" id="73179" class="">海外直邮</a>
-			</li>
-			<li class="n-tabItem" data-id="41804">
-				<a href="#" id="41804" class="">服饰鞋靴</a>
-			</li>
-		</ul>
-	</section>
+	<!--<section class="n-tabs">-->
+		<!--<ul class="n-tabContainer" id="auto-id-1509603311057">-->
+			<!--<li class="n-tabItem" data-id="homepage">-->
+				<!--<a href="#" id="homepage" class="current">视频购</a>-->
+			<!--</li>-->
+			<!--&lt;!&ndash;<li class="n-tabItem" data-id="44114">&ndash;&gt;-->
+				<!--&lt;!&ndash;<a href="#" id="44114" class="">直播</a>&ndash;&gt;-->
+			<!--&lt;!&ndash;</li>&ndash;&gt;-->
+			<!--<li class="n-tabItem" data-id="15394">-->
+				<!--<a href="#" id="15394" class="">图文</a>-->
+			<!--</li>-->
+			<!--<li class="n-tabItem" data-id="01436">-->
+				<!--<a href="#" id="01436" class="">图集</a>-->
+			<!--</li>-->
+			<!--&lt;!&ndash;<li class="n-tabItem" data-id="18211">&ndash;&gt;-->
+				<!--&lt;!&ndash;<a href="#" id="18211" class="">家居生活</a>&ndash;&gt;-->
+			<!--&lt;!&ndash;</li>&ndash;&gt;-->
+			<!--&lt;!&ndash;<li class="n-tabItem" data-id="83651">&ndash;&gt;-->
+				<!--&lt;!&ndash;<a href="#" id="83651" class="">生鲜</a>&ndash;&gt;-->
+			<!--&lt;!&ndash;</li>&ndash;&gt;-->
+			<!--&lt;!&ndash;<li class="n-tabItem" data-id="37957">&ndash;&gt;-->
+				<!--&lt;!&ndash;<a href="#" id="37957" class="">数码</a>&ndash;&gt;-->
+			<!--&lt;!&ndash;</li>&ndash;&gt;-->
+			<!--&lt;!&ndash;<li class="n-tabItem" data-id="74029">&ndash;&gt;-->
+				<!--&lt;!&ndash;<a href="#" id="74029" class="">个人洗护</a>&ndash;&gt;-->
+			<!--&lt;!&ndash;</li>&ndash;&gt;-->
+			<!--&lt;!&ndash;<li class="n-tabItem" data-id="73179">&ndash;&gt;-->
+				<!--&lt;!&ndash;<a href="#" id="73179" class="">海外直邮</a>&ndash;&gt;-->
+			<!--&lt;!&ndash;</li>&ndash;&gt;-->
+			<!--&lt;!&ndash;<li class="n-tabItem" data-id="41804">&ndash;&gt;-->
+				<!--&lt;!&ndash;<a href="#" id="41804" class="">服饰鞋靴</a>&ndash;&gt;-->
+			<!--&lt;!&ndash;</li>&ndash;&gt;-->
+		<!--</ul>-->
+	<!--</section>-->
 
 	<div class="aui-content-box" style="padding-top:41px;">
-		<div class="aui-banner-content aui-fixed-top" data-aui-slider>
-			<div class="aui-banner-wrapper">
-				<div class="aui-banner-wrapper-item">
-					<a href="#">
-						<img src="themes/img/banner/find-2.jpg">
-					</a>
-				</div>
-				<div class="aui-banner-wrapper-item">
-					<a href="#">
-						<img src="themes/img/banner/find-1.jpg">
-					</a>
-				</div>
-				<div class="aui-banner-wrapper-item">
-					<a href="#">
-						<img src="themes/img/banner/find-3.jpg">
-					</a>
-				</div>
-			</div>
-			<div class="aui-banner-pagination"></div>
-		</div>
-		<!-- 卡片模块 三列 begin -->
-		<section class="aui-card-content">
-			<div class="aui-card-box">
+
+
+		<!-- 卡片模块 三列 begin 关注店铺样式-->
+		<section class="aui-card-content" v-for="item in productList" :key="item.item_id">
+			<div class="aui-card-box" @click="goDetail(item)">
 				<div class="aui-card-box-user">
-					<img src="themes/img/user/user0.png" alt="">
+					<img :src="item.author_avatar" alt="">
 				</div>
 				<div class="aui-card-box-name">
-					<h2 class="aui-card-box-name">时尚优购店铺</h2>
-					<span class="aui-card-box-btn">关注</span>
+					<h2 class="aui-card-box-name">{{item.author_nick}}</h2>
+					<span class="aui-card-box-btn">查看</span>
 				</div>
-				<div class="aui-card-box-time">9月10日发布</div>
+				<div class="aui-card-box-time">{{formatDate(item.publish_time)}}&nbsp;&nbsp;发布</div>
 			</div>
 			<div class="aui-card-media-inner">
-				<div class="aui-card-media-inner-title">双11你的购物车我全包了</div>
+				<div class="aui-card-media-inner-title" @click="goDetail(item)">{{item.summary}}</div>
 				<div class="aui-card-media-inner-padded">
-					<div class="aui-card-media-inner-col-xs-3">
-						<img src="themes/img/pd/sf-7.jpg" alt="">
-					</div>
-					<div class="aui-card-media-inner-col-xs-3">
-						<img src="themes/img/pd/sf-5.jpg" alt="">
-					</div>
-					<div class="aui-card-media-inner-col-xs-3">
-						<img src="themes/img/pd/sf-6.jpg" alt="">
+					<div class="aui-card-media-inner-col-xs-3" v-for="imgStr in item.images.string">
+						<img :src="imgStr" alt="">
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- 卡片模块 三列 end -->
-		<div class="aui-dri"></div>
-		<!-- 卡片模块 三列 begin -->
-		<section class="aui-card-content">
-			<div class="aui-card-box">
-				<div class="aui-card-box-user">
-					<img src="themes/img/user/user9.png" alt="">
-				</div>
-				<div class="aui-card-box-name">
-					<h2 class="aui-card-box-name">艾畅的家族</h2>
-					<span class="aui-card-box-btn">关注</span>
-				</div>
-				<div class="aui-card-box-time">9月10日发布</div>
-			</div>
-			<div class="aui-card-media-inner">
-				<div class="aui-card-media-inner-title">双11你的购物车我全包了</div>
-				<div class="aui-card-media-inner-padded">
-					<div class="aui-card-media-inner-col-xs-3">
-						<img src="themes/img/pd/pd-zf-6.jpg" alt="">
-					</div>
-					<div class="aui-card-media-inner-col-xs-3">
-						<img src="themes/img/pd/pd-zf-7.jpg" alt="">
-					</div>
-					<div class="aui-card-media-inner-col-xs-3">
-						<img src="themes/img/pd/pd-zf-8.jpg" alt="">
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- 卡片模块 三列 end -->
-		<div class="aui-dri"></div>
-		<!-- 卡片模块 begin -->
-		<section class="aui-card-content">
-			<div class="aui-card-box">
-				<div class="aui-card-box-user">
-					<img src="themes/img/user/user2.png" alt="">
-				</div>
-				<div class="aui-card-box-name">
-					<h2 class="aui-card-box-name">轻量科技</h2>
-					<span class="aui-card-box-btn">关注</span>
-				</div>
-				<div class="aui-card-box-time">11月10日前</div>
-			</div>
-			<div class="aui-card-media">
-				<div class="aui-card-media-item">
-					<img src="themes/img/pd/sf-18.jpg" />
-				</div>
-				<div class="aui-card-media-inner">
-					<div class="aui-card-media-text">
-						<p>时尚女神节 抢5折优惠券转身变女神 你想要的这里都有</p>
-					</div>
-					<div class="aui-card-media-describe">
-						<span>1.1万人浏览 2390件宝贝</span>
-					</div>
-				</div>
-			</div>
-			<div class="aui-card-media">
-				<div class="aui-card-media-item">
-					<img src="themes/img/pd/sf-9.jpg" />
-				</div>
-				<div class="aui-card-media-inner">
-					<div class="aui-card-media-text">
-						<p>时尚女神节 抢5折优惠券转身变女神 你想要的这里都有</p>
-					</div>
-					<div class="aui-card-media-describe">
-						<span>1.1万人浏览 2390件宝贝</span>
-					</div>
-				</div>
-			</div>
-			<div class="aui-card-media">
-				<div class="aui-card-media-item">
-					<img src="themes/img/pd/sf-22.jpg" />
-				</div>
-				<div class="aui-card-media-inner">
-					<div class="aui-card-media-text">
-						<p>每日坚果750g零食果干无添加混合坚果孕妇食品小</p>
-					</div>
-					<div class="aui-card-media-describe">
-						<span>1.1万人浏览 2390件宝贝</span>
-					</div>
-				</div>
-			</div>
-
 		</section>
 		<!-- 卡片模块 end -->
-		<div class="aui-dri"></div>
-		<!-- 卡片模块 begin -->
-		<section class="aui-card-content">
-			<div class="aui-card-box">
-				<div class="aui-card-box-user">
-					<img src="themes/img/user/user4.png" alt="">
-				</div>
-				<div class="aui-card-box-name">
-					<h2 class="aui-card-box-name">艾佳生活</h2>
-					<span class="aui-card-box-btn">关注</span>
-				</div>
-				<div class="aui-card-box-time">10月10日发布</div>
-			</div>
-			<div class="aui-card-media">
-				<div class="aui-card-media-item">
-					<img src="themes/img/pd/sf-10.jpg" />
-				</div>
-				<div class="aui-card-media-inner">
-					<div class="aui-card-media-text">
-						席梦思（Simmons） 原装进口独立袋弹簧 软硬适中 艾乔安娜承托 灰蓝白 1500*2000*280灰蓝白 1500*2000*280
-					</div>
-					<div class="aui-card-media-describe">
-						<span>1.1万人浏览 2390件宝贝</span>
-					</div>
-				</div>
-			</div>
-
-		</section>
-		<!-- 卡片模块 end -->
-		<div class="aui-dri"></div>
-		<!-- 卡片模块 begin -->
-		<section class="aui-card-content">
-			<div class="aui-card-box">
-				<div class="aui-card-box-user">
-					<img src="themes/img/user/user3.png" alt="">
-				</div>
-				<div class="aui-card-box-name">
-					<h2 class="aui-card-box-name">小虾米</h2>
-					<span class="aui-card-box-btn">关注</span>
-				</div>
-				<div class="aui-card-box-time">10月10日发布</div>
-			</div>
-			<div class="aui-card-media">
-				<div class="aui-card-media-item">
-					<img src="themes/img/pd/sf-19.jpg" />
-				</div>
-				<div class="aui-card-media-inner">
-					<div class="aui-card-media-text">
-						席梦思（Simmons） 原装进口独立袋弹簧 软硬适中 艾乔安娜承托 灰蓝白 1500*2000*280灰蓝白 1500*2000*280
-					</div>
-					<div class="aui-card-media-describe">
-						<span>1.1万人浏览 2390件宝贝</span>
-					</div>
-				</div>
-			</div>
-			<div class="aui-card-media">
-				<div class="aui-card-media-item">
-					<img src="themes/img/pd/sf-11.jpg" />
-				</div>
-				<div class="aui-card-media-inner">
-					<div class="aui-card-media-text">
-						ML权力的游戏史塔克家族徽章印花短袖T恤1700140 黑色AK权力的游戏史塔克家族徽章印花短袖T恤1700140 黑色 L
-					</div>
-					<div class="aui-card-media-describe">
-						<span>1.1万人浏览 2390件宝贝</span>
-					</div>
-				</div>
-			</div>
-
-		</section>
-		<!-- 卡片模块 end -->
-		<div class="aui-dri"></div>
-		<!-- 卡片模块 begin -->
-		<section class="aui-card-content">
-			<div class="aui-card-box">
-				<div class="aui-card-box-user">
-					<img src="themes/img/user/user2.png" alt="">
-				</div>
-				<div class="aui-card-box-name">
-					<h2 class="aui-card-box-name">每天都坚果一下</h2>
-					<span class="aui-card-box-btn">关注</span>
-				</div>
-				<div class="aui-card-box-time">10月10日发布</div>
-			</div>
-			<div class="aui-card-media">
-				<div class="aui-card-media-item">
-					<img src="themes/img/pd/sf-8.jpg" />
-				</div>
-				<div class="aui-card-media-inner">
-					<div class="aui-card-media-text">
-						沃隆 每日坚果750g零食果干无添加混合坚果孕妇食品小包装礼盒 成人A款=25g*30袋
-					</div>
-					<div class="aui-card-media-describe">
-						<span>1.1万人浏览 2390件宝贝</span>
-					</div>
-				</div>
-			</div>
-
-		</section>
-		<!-- 卡片模块 end -->
-
-		<div class="aui-dri" style="margin-bottom:20px;"></div>
-		<div class="aui-list-content">
-			<div class="aui-list-item">
-				<div class="aui-list-item-img">
-					<img src="themes/img/pd/cf-6.jpg" alt="">
-				</div>
-				<div class="aui-slide-box">
-					<div class="aui-slide-list">
-						<ul class="aui-slide-item-list">
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-20.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">nissen 凹凸纵横弹性沙发套</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥31149</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥11499</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-21.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">日本NITORI尼达利 三折坐垫 长毛条纹 浅棕 </p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥1199</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥1198</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-22.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">商城精选 对伴沙发</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥2399</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥9999</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-23.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">商城精选 韵白系列沙发三人位</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥9189</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥21299</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-24.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">商城精选 韵白系列沙发单人位</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥2349</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥4199</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-24.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">商城精选 韵白系列沙发单人位</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥2349</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥4199</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-24.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">商城精选 韵白系列沙发单人位</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥2349</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥4199</span>
-									</p>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-				</div>
-				<div class="aui-slide-box">
-					<div class="aui-slide-list">
-						<ul class="aui-slide-item-list">
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-19.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">nissen 凹凸纵横弹性沙发套</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥31149</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥11499</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-18.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">日本NITORI尼达利 三折坐垫 长毛条纹 浅棕 </p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥1199</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥1198</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-17.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">商城精选 对伴沙发</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥2399</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥9999</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-16.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">商城精选 韵白系列沙发三人位</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥9189</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥21299</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-15.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">商城精选 韵白系列沙发单人位</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥2349</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥4199</span>
-									</p>
-								</a>
-							</li>
-							<li class="aui-slide-item-item">
-								<a href="#" class="v-link">
-									<img class="v-img" src="themes/img/pd/sf-15.jpg">
-									<p class="aui-slide-item-title aui-slide-item-f-els">商城精选 韵白系列沙发单人位</p>
-									<p class="aui-slide-item-info">
-										<span class="aui-slide-item-price">¥2349</span>&nbsp;&nbsp;<span class="aui-slide-item-mrk">¥4199</span>
-									</p>
-								</a>
-							</li>
-						</ul>
-					</div>
-
-				</div>
-			</div>
-		</div>
-		<div class="aui-recommend">
-			<img src="themes/img/bg/icon-tj2.jpg" alt="">
-			<!--<h2>为你推荐</h2>-->
-		</div>
-		<section class="aui-list-product">
-			<div class="aui-list-product-box">
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-15.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-14.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-13.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-12.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-11.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-10.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-9.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-8.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-16.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-17.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-18.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-19.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-20.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-21.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-22.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-				<a href="javascript:;" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
-						<img src="themes/img/pd/sf-23.jpg" alt="">
-					</div>
-					<div class="aui-list-product-item-text">
-						<h3>KOBE LETTUCE 秋冬新款 女士日系甜美纯色半高领宽松套头毛衣针织衫</h3>
-						<div class="aui-list-product-mes-box">
-							<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								399.99
-							</span>
-								<span class="aui-list-product-item-del-price">
-								¥495.65
-							</span>
-							</div>
-							<div class="aui-comment">986评论</div>
-						</div>
-					</div>
-				</a>
-			</div>
-		</section>
 	</div>
 
+		<!-- 卡片模块 三列 begin 关注店铺样式-->
+		<!--<section class="aui-card-content">-->
+			<!--<div class="aui-card-box">-->
+				<!--<div class="aui-card-box-user">-->
+					<!--<img src="themes/img/user/user0.png" alt="">-->
+				<!--</div>-->
+				<!--<div class="aui-card-box-name">-->
+					<!--<h2 class="aui-card-box-name">时尚优购店铺</h2>-->
+					<!--<span class="aui-card-box-btn">关注</span>-->
+				<!--</div>-->
+				<!--<div class="aui-card-box-time">9月10日发布</div>-->
+			<!--</div>-->
+			<!--<div class="aui-card-media-inner">-->
+				<!--<div class="aui-card-media-inner-title">双11你的购物车我全包了</div>-->
+				<!--<div class="aui-card-media-inner-padded">-->
+					<!--<div class="aui-card-media-inner-col-xs-3">-->
+						<!--<img src="themes/img/pd/sf-7.jpg" alt="">-->
+					<!--</div>-->
+					<!--<div class="aui-card-media-inner-col-xs-3">-->
+						<!--<img src="themes/img/pd/sf-5.jpg" alt="">-->
+					<!--</div>-->
+					<!--<div class="aui-card-media-inner-col-xs-3">-->
+						<!--<img src="themes/img/pd/sf-6.jpg" alt="">-->
+					<!--</div>-->
+				<!--</div>-->
+			<!--</div>-->
+		<!--</section>-->
+		<!-- 卡片模块 end -->
+</div>
 	<footer class="aui-footer-default aui-footer-fixed">
-		<a href="style.html" class="aui-footer-item">
+		<a href="../index.html" class="aui-footer-item">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-home"></span>
 			<span class="aui-footer-item-text">首页</span>
 		</a>
-		<a href="class.html" class="aui-footer-item">
+		<a href="./class.html" class="aui-footer-item">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-class"></span>
 			<span class="aui-footer-item-text">分类</span>
 		</a>
-		<a href="find.html" class="aui-footer-item aui-footer-active">
+		<a href="javascript:void(0);" class="aui-footer-item aui-footer-active">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-find"></span>
 			<span class="aui-footer-item-text">发现</span>
 		</a>
-		<a href="car.html" class="aui-footer-item">
-			<span class="aui-footer-item-icon aui-icon aui-footer-icon-car"></span>
-			<span class="aui-footer-item-text">购物车</span>
-		</a>
-		<a href="ui-me.html" class="aui-footer-item">
+		<a href="./ui-me.html" class="aui-footer-item">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-me"></span>
 			<span class="aui-footer-item-text">我的</span>
 		</a>
 	</footer>
 	<script type="text/javascript" src="themes/js/jquery.min.js"></script>
 	<script type="text/javascript" src="themes/js/aui.js"></script>
+	<script type="text/javascript" src="themes/vue2/vue.js"></script>
+	<script type="text/javascript" src="themes/js/base.js"></script>
+    <script>
+        var vue = new Vue({
+            el: '#vue',
+            data: {
+                productList:[],
+                items: '',
+                b:true,
+				type:1,
+            },
+            created:function () {   //实例初始化创建完成执行
+                this.getProductList();
+                window.addEventListener('scroll', this.onScroll);
+            },
+            methods:{              //定义封装方法
+                onScroll() {
+                    //可滚动容器的高度
+                    let innerHeight = document.querySelector('#vue').clientHeight;
+                    //屏幕尺寸高度
+                    let outerHeight = document.documentElement.clientHeight;
+                    //可滚动容器超出当前窗口显示范围的高度
+                    let scrollTop = document.body.scrollTop + document.documentElement.scrollTop;
+                    //scrollTop在页面为滚动时为0，开始滚动后，慢慢增加，滚动到页面底部时，出现innerHeight < (outerHeight + scrollTop)的情况，严格来讲，是接近底部。
+                    // console.log(innerHeight + " " + outerHeight + " " + scrollTop);
+                    if ((innerHeight-110) < (outerHeight + scrollTop)) {
+                        if(!this.b){
+                            return;
+                        }
+                        //加载更多操作
+                        console.log("loadmore："+this.items);
+                        // this.items += 1;
+                        this.b = false;
+                        this.getProductList();
+                    }
+                },
+                //获取列表
+                getProductList:function () {
+                    var self = this;
+                    $.ajax({
+                        type:"POST",
+                        url:CTX+"/open/h5/tbk/getContentList",
+                        dataType:"JSON",
+                        data:{
+                            before_timestamp:self.items,
+							count:10,
+							type:self.type
+                        },
+                        success:function(data){
+                            if (data.code == 0) {
+                                var list = self.productList;
+                                var plist = data.data.tbk_content_get_response.result.data.contents.map_data;
+                                self.items = data.data.tbk_content_get_response.result.data.last_timestamp;
+                                var arrList = list.concat(plist);
+                                self.productList = arrList;
+                                self.b = true;
+                            } else {
+
+                            }
+                        }
+                    });
+                },
+                goDetail(item){
+                    window.location.href = item.clink;
+                },
+                formatDate: function (value) {
+                    var now = new Date(parseInt(value));
+                    var year=now.getFullYear();
+                    var month=now.getMonth()+1;
+                    var date=now.getDate();
+                    var hour=now.getHours();
+                    var minute=now.getMinutes();
+                    var second=now.getSeconds();
+                    return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second;
+                }
+            },
+            watch:{     //监听器
+
+            }
+
+        })
+	</script>
 </body>
 </html>

@@ -22,9 +22,10 @@
   <div id="vue">
 
 	<header class="aui-header-default aui-header-fixed aui-header-clear-bg"> <!-- aui-header-clear-bg 清除背景色 -->
-		<a href="#" class="aui-header-item">
-			<i class="aui-icon aui-icon-code"></i>
-		</a>
+		<!--扫一扫-->
+		<!--<a href="#" class="aui-header-item">-->
+			<!--<i class="aui-icon aui-icon-code"></i>-->
+		<!--</a>-->
 		<div class="aui-header-center aui-header-center-clear"  style="margin-right:50px;">
 			<div class="aui-header-search-box" style="background-color:#fff">
 				<i class="aui-icon aui-icon-small-search"></i>
@@ -33,9 +34,10 @@
 				</form>
 			</div>
 		</div>
-		<a href="#" class="aui-header-item-icon" style="position:absolute; right:-35px; top:0;">
-			<i class="aui-icon aui-icon-member-1"></i>
-		</a>
+		<!--消息-->
+		<!--<a href="#" class="aui-header-item-icon" style="position:absolute; right:-35px; top:0;">-->
+			<!--<i class="aui-icon aui-icon-member-1"></i>-->
+		<!--</a>-->
 		<div id="scrollBg"></div>
 	</header>
 	<div class="aui-content-box">
@@ -66,35 +68,35 @@
 		</div>
 		<section class="aui-grid-content">
 			<div class="aui-grid-row aui-grid-row-clears"> <!-- aui-grid-row-clear 清除 a标签 上下的边距 -->
-				<a href="tbk/my-sign.html" class="aui-grid-row-item">
-					<i class="aui-icon-large aui-icon-sign"></i>
-					<p class="aui-grid-row-label">每日签到</p>
-				</a>
+				<!--<a href="tbk/my-sign.html" class="aui-grid-row-item">-->
+					<!--<i class="aui-icon-large aui-icon-sign"></i>-->
+					<!--<p class="aui-grid-row-label">每日签到</p>-->
+				<!--</a>-->
 				<a href="tbk/my-time.html" class="aui-grid-row-item">
 					<i class="aui-icon-large aui-icon-time"></i>
-					<p class="aui-grid-row-label">限时抢购</p>
+					<p class="aui-grid-row-label">淘抢购</p>
 				</a>
-				<a href="tbk/my-membership.html" class="aui-grid-row-item">
-					<i class="aui-icon-large aui-icon-vip"></i>
-					<p class="aui-grid-row-label">会员专享</p>
-				</a>
+				<!--<a href="tbk/my-membership.html" class="aui-grid-row-item">-->
+					<!--<i class="aui-icon-large aui-icon-vip"></i>-->
+					<!--<p class="aui-grid-row-label">会员专享</p>-->
+				<!--</a>-->
 				<a href="tbk/my-purchase.html" class="aui-grid-row-item">
 					<i class="aui-icon-large aui-icon-group"></i>
-					<p class="aui-grid-row-label">好货拼团</p>
+					<p class="aui-grid-row-label">聚划算</p>
 				</a>
-				<a href="tbk/my-invitation.html" class="aui-grid-row-item">
-					<i class="aui-icon-large aui-icon-share"></i>
-					<p class="aui-grid-row-label">分享领券</p>
-				</a>
-				<a href="tbk/my-sign.html" class="aui-grid-row-item">
+				<!--<a href="tbk/my-invitation.html" class="aui-grid-row-item">-->
+					<!--<i class="aui-icon-large aui-icon-share"></i>-->
+					<!--<p class="aui-grid-row-label">分享领券</p>-->
+				<!--</a>-->
+				<a href="javascript:void(0)" onclick="goPhone()" class="aui-grid-row-item">
 					<i class="aui-icon-large aui-icon-recharges"></i>
 					<p class="aui-grid-row-label">手机充值</p>
 				</a>
-				<a href="tbk/my-time.html" class="aui-grid-row-item">
-					<i class="aui-icon-large aui-icon-finance"></i>
-					<p class="aui-grid-row-label">金融理财</p>
-				</a>
-				<a href="tbk/my-membership.html" class="aui-grid-row-item">
+				<!--<a href="tbk/my-time.html" class="aui-grid-row-item">-->
+					<!--<i class="aui-icon-large aui-icon-finance"></i>-->
+					<!--<p class="aui-grid-row-label">金融理财</p>-->
+				<!--</a>-->
+				<a href="javascript:void(0)" onclick="goDianqi()" class="aui-grid-row-item">
 					<i class="aui-icon-large aui-icon-appliance"></i>
 					<p class="aui-grid-row-label">电器商城</p>
 				</a>
@@ -102,10 +104,10 @@
 					<i class="aui-icon-large aui-icon-supermarket"></i>
 					<p class="aui-grid-row-label">萌宝超市</p>
 				</a>
-				<a href="tbk/my-invitation.html" class="aui-grid-row-item">
-					<i class="aui-icon-large aui-icon-personal"></i>
-					<p class="aui-grid-row-label">个人中心</p>
-				</a>
+				<!--<a href="tbk/my-invitation.html" class="aui-grid-row-item">-->
+					<!--<i class="aui-icon-large aui-icon-personal"></i>-->
+					<!--<p class="aui-grid-row-label">个人中心</p>-->
+				<!--</a>-->
 			</div>
 		</section>
 		<!--<section class="aui-content-six aui-border-t " style="background-color: #fff;">
@@ -503,11 +505,12 @@
 					</div>
 				</a>
 			</div>
+			<p style="width: 50px;margin: 5px auto;">加载中...</p>
 		</section>
 	</div>
 
 	<footer class="aui-footer-default aui-footer-fixed">
-		<a href="style.html" class="aui-footer-item aui-footer-active">
+		<a href="javascript:void(0);" class="aui-footer-item aui-footer-active">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-home"></span>
 			<span class="aui-footer-item-text">首页</span>
 		</a>
@@ -518,10 +521,6 @@
 		<a href="tbk/find.html" class="aui-footer-item">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-find"></span>
 			<span class="aui-footer-item-text">发现</span>
-		</a>
-		<a href="tbk/car.html" class="aui-footer-item">
-			<span class="aui-footer-item-icon aui-icon aui-footer-icon-car"></span>
-			<span class="aui-footer-item-text">购物车</span>
 		</a>
 		<a href="tbk/ui-me.html" class="aui-footer-item">
 			<span class="aui-footer-item-icon aui-icon aui-footer-icon-me"></span>
@@ -572,10 +571,25 @@
         
         function fn() {
             var searchfor = $("#searchfor").val();
+            if(searchfor == '' || searchfor == null){
+                 return;
+			}
             localStorage.setItem("searchfor",searchfor);
+            localStorage.setItem("cId","");
             window.location.href = "tbk/my-products-class.html";
         }
-        
+        //进入手机充值
+        function goPhone() {
+            localStorage.setItem("searchfor","");
+            localStorage.setItem("cId","50004958");
+            window.location.href = "tbk/my-products-class.html";
+        }
+        //进入生活电器
+		function goDianqi() {
+            localStorage.setItem("searchfor","");
+            localStorage.setItem("cId","50012100");
+            window.location.href = "tbk/my-products-class.html";
+        }
     var vue = new Vue({
         el: '#vue',
         data: {
@@ -594,9 +608,10 @@
                 //屏幕尺寸高度
                 let outerHeight = document.documentElement.clientHeight;
                 //可滚动容器超出当前窗口显示范围的高度
-                let scrollTop = document.documentElement.scrollTop;
+                let scrollTop = document.body.scrollTop + document.documentElement.scrollTop;
                 //scrollTop在页面为滚动时为0，开始滚动后，慢慢增加，滚动到页面底部时，出现innerHeight < (outerHeight + scrollTop)的情况，严格来讲，是接近底部。
-                console.log(innerHeight + " " + outerHeight + " " + scrollTop);
+                console.log(innerHeight + " " + outerHeight + " " + scrollTop+"   ");
+                // alert(innerHeight + " " + outerHeight + " " + scrollTop+"   ");
                 if ((innerHeight-110) < (outerHeight + scrollTop)) {
                     if(!this.b){
                         return;
