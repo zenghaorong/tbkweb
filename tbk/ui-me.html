@@ -21,7 +21,7 @@
 <div id="vue">
  <div id="scrollBg"></div>
 	<header class="aui-header-default aui-header-fixed aui-header-clear-bg " style="background:none; border-bottom:0">
-		<a href="#" class="aui-header-item">
+		<a href="javascript:history.back(-1);" class="aui-header-item">
 			<i class="aui-icon aui-icon-back-white" id="scrollSearchI" style="display:block"></i>
 			<div id="scrollSearchDiv">
 				<img src="themes/img/user/head-2.jpg" alt="">
@@ -269,7 +269,8 @@
                     dataType:"JSON",
                     data:{
                         pageNo:self.items,
-                        fid:'19743926',  //选品库编号-精选美食库，查询编号接口：CTX+"/open/h5/tbk/getFavoritesList"
+                        // fid:'19743926',  //选品库编号-精选美食库，查询编号接口：CTX+"/open/h5/tbk/getFavoritesList" 我的
+                        fid:'19855463',  //选品库编号-精选美食库，查询编号接口：CTX+"/open/h5/tbk/getFavoritesList" 公共的-个人中心为你推荐
                     },
                     success:function(data){
                         if (data.code == 0) {
@@ -286,7 +287,7 @@
             },
             goDetail(item){
 
-                window.location.href = item.wap_url;
+                window.location.href = item.item_url;
 
             }
         },

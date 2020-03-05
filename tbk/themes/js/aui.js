@@ -3345,10 +3345,12 @@
     }
 
     $(window).on('load.ydui.slider', function () {
-        $('[data-aui-slider]').each(function () {
-            var $this = $(this);
-            $this.slider(window.YDUI.util.parseOptions($this.data('ydui-slider')));
-        });
+        setTimeout(function () {
+            $('[data-aui-slider]').each(function () {
+                var $this = $(this);
+                $this.slider(window.YDUI.util.parseOptions($this.data('ydui-slider')));
+            });
+        },1000)
     });
 
     $.fn.slider = Plugin;
