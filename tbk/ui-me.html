@@ -152,21 +152,25 @@
 			</div>
 			<section class="aui-list-product">
 				<div class="aui-list-product-box">
-					<a href="javascript:void(0)" class="aui-list-product-item" v-for="item in productList" :key="item.num_iid" @click="goDetail(item)">
-						<div class="aui-list-product-item-img">
+					<a style="padding: 10px 8px;" href="javascript:void(0)" class="aui-list-product-item" v-for="item in productList" :key="item.num_iid" @click="goDetail(item)">
+						<div class="aui-list-product-item-img" style="border-radius: 6px;height: 16em;">
 							<img :src="item.pict_url" alt="">
 						</div>
 						<div class="aui-list-product-item-text">
 							<h3>{{item.title}}</h3>
 							<div class="aui-list-product-mes-box">
 								<div>
-							<span class="aui-list-product-item-price">
-								<em>¥</em>
-								{{item.zk_final_price}}
-							</span>
+									<span class="aui-list-product-item-price">
+										<em>¥</em>
+										{{item.zk_final_price}}
+									</span>
+								</div>
+							</div>
+							<div class="aui-list-product-mes-box">
+								<div>
 									<span class="aui-list-product-item-del-price">
-								¥{{item.reserve_price}}
-							</span>
+										¥{{item.reserve_price}}
+									</span>
 								</div>
 								<div class="aui-comment">{{item.nick}}</div>
 							</div>

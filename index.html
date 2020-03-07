@@ -554,23 +554,39 @@
 		</div>
 		<section class="aui-list-product">
 			<div class="aui-list-product-box">
-				<a  v-for="item in productList" :key="item.seller_id" :href="item.coupon_share_url" class="aui-list-product-item">
-					<div class="aui-list-product-item-img">
+				<a style="padding: 10px 8px;"  v-for="item in productList" :key="item.seller_id" :href="item.coupon_share_url" class="aui-list-product-item">
+					<div class="aui-list-product-item-img" style="border-radius: 6px;height: 16em;">
 						<img :src="item.pict_url" alt="">
 					</div>
 					<div class="aui-list-product-item-text">
 						<h3>{{item.title}}</h3>
 						<div class="aui-list-product-mes-box">
 							<div>
-							<span class="aui-list-product-item-price">
-								<em>优惠价¥</em>
-								{{item.zk_final_price - item.coupon_amount}}
-							</span>
 								<span class="aui-list-product-item-del-price">
-								原价¥{{item.zk_final_price}}
-							</span>
+									原价¥{{item.zk_final_price}}
+								</span>
+							</div>
+						</div>
+						<div class="aui-list-product-mes-box">
+							<div>
+								<span class="aui-list-product-item-price">
+									<em>优惠价¥</em>
+									{{(item.zk_final_price - item.coupon_amount) | numFilter}}
+								</span>
 							</div>
 							<!--<div class="aui-comment">986评论</div>-->
+						</div>
+						<div class="aui-list-product-mes-box" style="margin-top: 10px;">
+							<div style="border:0.5px solid red;padding: 4px 6px;border-radius: 6px;width: 9.5em;">
+								<span class="aui-list-product-item-price">
+									<em>优惠券¥</em>{{item.coupon_amount| numFilter}}
+								</span>
+							</div>
+							<div style="border: 0.5px solid red;padding: 4px 10px;border-radius: 6px;">
+								<span class="aui-list-product-item-price">
+									<em>领取</em>
+								</span>
+							</div>
 						</div>
 					</div>
 				</a>
@@ -599,7 +615,7 @@
 	</footer>
   </div>
 	<script type="text/javascript" src="tbk/themes/js/jquery.min.js"></script>
-	<script type="text/javascript" src="tbk/themes/js/aui.js"></script>
+	<script type="text/javascript" src="tbk/themes/js/aui.js?v=10002"></script>
 	<script type="text/javascript" src="tbk/themes/vue2/vue.js"></script>
 	<script type="text/javascript" src="tbk/themes/js/base.js"></script>
 	<script type="text/javascript">
@@ -681,6 +697,19 @@
            this.getBanner();
             window.addEventListener('scroll', this.onScroll);
         },
+
+		filters: {
+			numFilter (value) {
+				let realVal = ''
+				if (!isNaN(value) && value!== '') {
+					// 截取当前数据到小数点后两位
+					realVal = parseFloat(value).toFixed(2)
+				} else {
+					realVal = '--'
+				}
+				return realVal
+			}
+		},
         methods:{              //定义封装方法
             onScroll() {
                 //可滚动容器的高度
