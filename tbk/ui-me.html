@@ -45,9 +45,15 @@
 				<div class="aui-me-content-item">
 					<div class="aui-me-content-item-head">
 						<div class="aui-me-content-item-img">
-							<img src="themes/img/user/head-2.jpg" alt="">
+							<img v-if="imageUrl!='' && imageUrl!=null && imageUrl!='undefined' " :src="imageUrl" alt="">
+							<img v-else src="themes/img/user/head-2.jpg"  alt="">
 						</div>
-						<div class="aui-me-content-item-title">拥有过就好了</div>
+						<div class="aui-me-content-item-title" v-if="accountMobile!='' && accountMobile!=null && accountMobile!='undefined' ">
+							{{accountMobile}}
+						</div>
+						<div class="aui-me-content-item-title"  v-else>
+							<a style="position: inherit;" href="./login.html" class="goRank">立即登录  &gt;</a>
+						</div>
 					</div>
 					<!--<div class="aui-me-content-item-text">-->
 						<!--<a href="my-orders.html">-->
@@ -72,6 +78,11 @@
 					<!--<h3><i class="aui-icon aui-card-me"></i>plus会员</h3>-->
 					<!--<a href="my-membership.html">开通享8大权益</a>-->
 				<!--</div>-->
+				<div class="aui-list-title-btn" @click="loginOut"  style="text-align: center;" v-if="accountMobile!='' && accountMobile!=null && accountMobile!='undefined' ">
+					<a href="javascript:void(0);" class="red-color" style="width: 265px;height: 30px;text-align: center;background-color: #8C8C8C;line-height: 28px;font-size: 14px;">
+						退出登录
+					</a>
+				</div>
 			</div>
 		</div>
 		<!--<div class="aui-me-content-order">-->
@@ -237,7 +248,9 @@
         data: {
             productList:[],
             items: 1,
-            b:true
+            b:true,
+			accountMobile:localStorage.getItem("mobile"),
+			imageUrl:localStorage.getItem("imageUrl"),
         },
         created:function () {   //实例初始化创建完成执行
             this.getProductList();
@@ -293,7 +306,14 @@
 
                 window.location.href = item.item_url;
 
-            }
+            },
+			loginOut(){
+				localStorage.setItem("imageUrl","");
+				localStorage.setItem("nickname","");
+				localStorage.setItem("accountId","");
+				localStorage.setItem("mobile","");
+				window.location.reload();
+			}
         },
         watch:{     //监听器
 

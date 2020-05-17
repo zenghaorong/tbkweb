@@ -577,14 +577,14 @@
 							<!--<div class="aui-comment">986评论</div>-->
 						</div>
 						<div class="aui-list-product-mes-box" style="margin-top: 10px;">
-							<div style="border:0.5px solid red;padding: 4px 6px;border-radius: 6px;width: 9.5em;">
-								<span class="aui-list-product-item-price">
-									<em>优惠券¥</em>{{item.coupon_amount| numFilter}}
+							<div style="border:0.5px solid red;padding: 4px 6px;border-radius: 6px;width: 8.5em;text-align:center;">
+								<span class="aui-list-product-item-price" style="font-size: 1em;">
+									<em  style="font-size: 1em;">优惠券¥</em>{{item.coupon_amount| numFilter}}
 								</span>
 							</div>
-							<div style="border: 0.5px solid red;padding: 4px 10px;border-radius: 6px;">
-								<span class="aui-list-product-item-price">
-									<em>领取</em>
+							<div style="border: 0.5px solid red;padding: 4px 0.2em;border-radius: 6px;width:3em;text-align:center;">
+								<span class="aui-list-product-item-price" style="font-size: 1em;">
+									<em  style="font-size: 1em;">领取</em>
 								</span>
 							</div>
 						</div>
@@ -618,6 +618,7 @@
 	<script type="text/javascript" src="tbk/themes/js/aui.js?v=10002"></script>
 	<script type="text/javascript" src="tbk/themes/vue2/vue.js"></script>
 	<script type="text/javascript" src="tbk/themes/js/base.js"></script>
+    <script type="text/javascript" src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
 	<script type="text/javascript">
         $(function () {
             //绑定滚动条事件

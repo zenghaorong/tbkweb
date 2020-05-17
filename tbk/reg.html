@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="./themes/css/mui.min.css" />
+    <link rel="stylesheet" href="./themes/css/hryc.css" />
+    <link rel="stylesheet" href="./themes/css/index.css?v=${@date.getDateTime()}" />
+    <!--App自定义的css-->
+    <!--<link rel="stylesheet" type="text/css" href="../css/app.css"/>-->
+    <style>
+        .area {
+            margin: 20px auto 0px auto;
+        }
+        .mui-input-group:first-child {
+            margin-top: 20px;
+        }
+        .mui-input-group label {
+            width: 25%;
+        }
+        .mui-input-row label~input,
+        .mui-input-row label~select,
+        .mui-input-row label~textarea {
+            width: 75%;
+        }
+        .mui-checkbox input[type=checkbox],
+        .mui-radio input[type=radio] {
+            top: 6px;
+        }
+        .mui-content-padded {
+            margin-top: 25px;
+        }
+        .mui-btn {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body style="background: white;">
+
+
+<header class="mui-bar mui-bar-nav top-color">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+    <h1 class="mui-title" style="color: white;">注册</h1>
+</header>
+<div class="mui-content" id="vue">
+    <form class="mui-input-group">
+        <div class="mui-input-row">
+            <label>账号</label>
+            <input id='mobile' v-model="mobile" type="tel" class=" mui-input" placeholder="请输入手机号">
+        </div>
+        <div class="mui-input-row">
+            <label>密码</label>
+            <input id='password' v-model="password" type="password" class=" mui-input" placeholder="请输入密码">
+        </div>
+        <div class="mui-input-row">
+            <label>确认</label>
+            <input id='password_confirm' v-model="password2" type="password" class=" mui-input" placeholder="请确认密码">
+        </div>
+<!--        <div class="mui-input-row">-->
+<!--            <label>验证码</label>-->
+<!--            <input id='code' type="number" v-model="captcha" class=" mui-input" placeholder="请输入验证码" style="width: 40%;-->
+<!--    float: left;">-->
+<!--            <button id="djCode" v-on:click="getCode" type="button" class="mui-btn mui-btn-primary" style="width: 25%;z-index: 20;margin-right: 1%;">获取验证码</button>-->
+<!--        </div>-->
+        <!--<div class="mui-input-row">-->
+        <!--<label>邮箱</label>-->
+        <!--<input id='email' type="email" class="mui-input-clear mui-input" placeholder="请输入邮箱">-->
+        <!--</div>-->
+    </form>
+    <div class="mui-content-padded">
+        <button id='reg' v-on:click="reg" class="mui-btn mui-btn-block mui-btn-primary" style="border-color: rgb(56,206,204);
+    background-color: rgb(56,206,204);">注册</button>
+    </div>
+    <div class="mui-content-padded">
+        <p></p>
+    </div>
+</div>
+
+<script type="text/javascript" src="./themes/js/mui.js" ></script>
+<script type="text/javascript" src="./themes/js/vue.js" ></script>
+<script type="text/javascript" src="./themes/js/jquery.min.js"></script>
+<script type="text/javascript" src="./themes/js/layer/mobile/layer.js" ></script>
+<script type="text/javascript" src="themes/js/base.js"></script>
+<script type="application/javascript">
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+
+    var s = true;
+
+    var vue = new Vue({
+        el: '#vue',
+        data: {
+            mobile: '',
+            password:'',
+            password2:'',
+            captcha:''
+        },
+        created:function () {   //实例初始化创建完成执行
+
+            // this.getvideoList()     //调用自身方法
+
+        },
+        methods:{              //定义封装方法
+            //获取列表
+            reg:function () {
+                var self = this;
+                var is=this.parameterCheck();
+                if(!is){
+                    return;
+                }
+
+                $.ajax({
+                    type:"POST",
+                    url:CTX+"/open/H5/login/doRegister",
+                    dataType:"JSON",
+                    data:{
+                        mobile:self.mobile,
+                        password:self.password,
+                        captcha:self.captcha
+                    },
+                    success:function(data){
+                        if (data.code == 0) {
+                            var d = data.data;
+                            window.location.href='./login.html';
+                        } else {
+                            //提示
+                            layer.open({
+                                content: data.msg
+                                ,skin: 'msg'
+                                ,time: 2 //2秒后自动关闭
+                            });
+                        }
+                    }
+                });
+
+            },
+            getCode:function () {
+                if(!isPoneAvailable(this.mobile)){
+                    layerAlert("请输入正确手机号");
+                    return false;
+                }
+                if(this.password=='' || this.password==null){
+                    layerAlert("密码不能为空");
+                    return false;
+                }
+                if(this.password2=='' || this.password2==null){
+                    layerAlert("确认密码不能为空");
+                    return false;
+                }
+                if(this.password2!=this.password){
+                    layerAlert("两次密码不一致");
+                    return false;
+                }
+                if(!s){
+                    return;
+                }
+
+                s=false;
+                var num = 60;
+                function settime() {
+                    $("#djCode").html(num + "秒重获取");
+                    num--;
+                    if(num == 0){
+                        $("#djCode").html("获取验证码");
+                        s=true;
+                        return;
+                    }
+                    setTimeout(function() {
+                        settime();
+                    },1000);
+                }
+
+                settime();
+
+
+                var self = this;
+                $.ajax({
+                    type:"POST",
+                    url:"${base!}/open/H5/login/getLoginMsgCode",
+                    dataType:"JSON",
+                    data:{
+                        mobile:self.mobile
+                    },
+                    success:function(data){
+                        if (data.code == 0) {
+                            var d = data.data;
+                        } else {
+                            //提示
+                            layer.open({
+                                content: data.msg
+                                ,skin: 'msg'
+                                ,time: 2 //2秒后自动关闭
+                            });
+                        }
+                    }
+                });
+
+            },
+            parameterCheck:function () {
+                if(!isPoneAvailable(this.mobile)){
+                    layerAlert("请输入正确手机号");
+                    return false;
+                }
+                if(this.password=='' || this.password==null){
+                    layerAlert("密码不能为空");
+                    return false;
+                }
+                if(this.password2=='' || this.password2==null){
+                    layerAlert("确认密码不能为空");
+                    return false;
+                }
+                if(this.password2!=this.password){
+                    layerAlert("两次密码不一致");
+                    return false;
+                }
+                // if(this.captcha=='' || this.captcha==null){
+                //     layerAlert("验证码不能为空");
+                //     return false;
+                // }
+                return true;
+            }
+
+        },
+        watch:{     //监听器
+            // carModel:function () {
+            //     this.getProvince();
+            // }
+        }
+
+    })
+
+    //手机号校验
+    function isPoneAvailable(mobile) {
+        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+        if (!myreg.test(mobile)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function layerAlert(msg) {
+        //提示
+        layer.open({
+            content: msg
+            ,skin: 'msg'
+            ,time: 2 //2秒后自动关闭
+        });
+    }
+
+
+</script>
+</body>
+</html>
